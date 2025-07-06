@@ -14,7 +14,7 @@ import { RiContactsLine } from "react-icons/ri";
 import { ClipLoader } from 'react-spinners';
 
 
-function page() {
+function Page() {
     const { data: session, status } = useSession();
     const router = useRouter();
 
@@ -80,4 +80,4 @@ function page() {
     )
 }
 
-export default page
+export default Page
