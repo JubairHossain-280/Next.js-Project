@@ -32,80 +32,76 @@ body {
 
 body {
   background: #1c1c1d;
+  color: white;
   box-sizing: unset;
+  overflow: auto;
 }
 
-details {
-  position: relative;
-  width: 220px;
-  background: #0e0e0e;
-  color: gray;
-  border-radius: 12px;
-  box-shadow: 0px 0px 20px 10px rgb(35, 35, 35);
-  height: 100%;
-  overflow: hidden;
-  white-space: nowrap;
-  transition: all 0.2s ease;
-  z-index: 111;
+/* custome scrollbar start */
+
+::-webkit-scrollbar {
+  width: 5px;
 }
+
+::-webkit-scrollbar-track {
+  background: transparent;
+  /* border-radius: 8px; */
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(0deg,cyan,rgb(0, 140, 255),rgb(0, 85, 255));
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(0deg,cyan,rgb(0, 140, 255),rgb(0, 85, 255));
+}
+
+::-webkit-scrollbar-corner {
+  border-radius: 12px;
+}
+
+.sidebar-container::-webkit-scrollbar {
+  width: 0;
+}
+
+.sidebar-container:hover::-webkit-scrollbar {
+  width: 3px;
+}
+
+.sidebar-container::-webkit-scrollbar-thumb {
+  background: cyan;
+  border-radius: 30px;
+  transition: all 0.2s ease;
+}
+
+/* custome scrollbar end */
 
 details:not([open]) {
   width: 50px;
-}
-
-/* 
-details:not([open]) ~  {
-  width: 50px;
-} */
-
-details summary {
-  display: inline-block;
-  list-style: none;
-  text-align: right;
-  color: gray;
-  font-size: 28px;
-  padding: 10px 15px 0px 10px;
-  cursor: pointer;
+  transition: all 0.2s ease-in-out;
 }
 
 details summary::-webkit-details-marker {
   display: none;
 }
 
-details ul {
-  list-style: none;
-  padding: 0;
-}
-
-details li {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin: 5px;
-  padding: 5px 10px;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: all 0.1s ease;
-}
-
-details li:hover {
-  background: rgba(0, 0, 0, 0.797);
-  color: white;
-}
-
-details li span {
+details li span,
+details button span {
   display: flex;
   align-items: center;
   gap: 10px;
 }
 
-details li span .icon {
+details li span .icon,
+details button span .icon {
   font-size: 20px;
   line-height: normal;
   padding: 0;
   margin: 0;
   color: cyan;
-  filter: drop-shadow(0 0 8px cyan) drop-shadow(0 0 12px cyan);
+  /* filter: drop-shadow(0 0 8px cyan) drop-shadow(0 0 12px cyan); */
 }
 
 .login-container {
@@ -219,9 +215,5 @@ input:focus {
 @media screen and (max-width: 600px) {
   .login-form {
     width: 90%;
-  }
-
-  details {
-    display: none;
   }
 }

@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
-import GoogleLoginButton from './GoogleLoginButton'
 import { ToastContainer, toast } from 'react-toastify';
 import { RiEyeCloseLine } from "react-icons/ri";
 import { RiEyeLine } from "react-icons/ri";
-import Home from './Home';
+import { FcGoogle } from "react-icons/fc";
+import { signIn } from 'next-auth/react';
 
 
 function Login() {
@@ -46,7 +46,6 @@ function Login() {
 
     return (
         <div className='flex h-screen'>
-            <Home />
             <div className='login-container flex-1'>
                 <form action="" className='login-form' onSubmit={handleSubmit}>
                     <h2 className='title text-2xl font-bold'>Login</h2>
@@ -75,10 +74,16 @@ function Login() {
                     )}
                     <button type="submit" className='login-btn text-black'>Login</button>
                     <p className='title'>OR</p>
-                    <GoogleLoginButton />
+                    <button
+                        type='button'
+                        onClick={() => signIn('google', { prompt: 'select_account' })}
+                        className='flex justify-center items-center gap-2 px-4 py-2 border rounded cursor-pointer'
+                    >
+                        <FcGoogle size={20} /> Sign in with Google
+                    </button>
                 </form>
                 <ToastContainer
-                    position="bottom-center"
+                    position="bottom-right"
                     autoClose={3000}
                     hideProgressBar={false}
                     newestOnTop={true}

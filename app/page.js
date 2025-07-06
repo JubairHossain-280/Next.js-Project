@@ -1,15 +1,13 @@
 'use client';
 
-import Image from "next/image";
-import { GoogleOAuthProvider } from '@react-oauth/google';
-import Login from "@/components/Login";
+import Link from "next/link";
 
 export default function Home() {
-  const clientId = '160575353182-k2i4dh32o9paoahqqc75aggn3p6aohl6.apps.googleusercontent.com';
 
   return (
-    <GoogleOAuthProvider clientId={clientId}>
-      <Login />
-    </GoogleOAuthProvider>
+    <div className="flex flex-col gap-10 justify-center items-center h-screen">
+      <h1 className="text-4xl font-semibold">Home Page</h1>
+      <Link href="/login" className="bg-cyan-800 hover:bg-cyan-900 duration-100 ease-in-out px-5 py-1 cursor-pointer rounded-sm font-medium">Login</Link>
+    </div>
   );
 }
